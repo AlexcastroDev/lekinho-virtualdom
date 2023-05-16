@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div id="app"></div>
+    <script src='lib/index.js'></script>
+    <script>
+        const virtualDOM = createElement('div', { id: 'myDiv' }, [
+        createElement('h1', null, 'Hello, Virtual DOM!'),
+        createElement('p', null, 'This is a minimal implementation.'),
+        createElement('ul', null, [
+            createElement('li', null, 'Item 1'),
+            createElement('li', null, 'Item 2'),
+            createElement('li', null, 'Item 3')
+        ])
+        ]);
+
+        const container = document.getElementById('app');
+        let element = null;
+
+        function updateApp() {
+            update(element, virtualDOM, container);
+        }
+
+        updateApp();
+    </script>
+</body>
+</html>
